@@ -46,18 +46,23 @@ namespace StsIdentityServer4
                     RedirectUris = new List<string>
                     {
                         "https://localhost:44372",
-                        "https://localhost:44372/silent-renew.html"
+                        "https://localhost:44372/silent-renew.html",
+                        "http://spaclient20180612093422.azurewebsites.net",
+                        "http://spaclient20180612093422.azurewebsites.net/silent-renew.html"
 
                     },
                     PostLogoutRedirectUris = new List<string>
                     {
                         "https://localhost:44372/unauthorized",
-                        "https://localhost:44372"
+                        "https://localhost:44372",
+                        "http://spaclient20180612093422.azurewebsites.net",
+                        "http://spaclient20180612093422.azurewebsites.net/unauthorized"
                     },
                     AllowedCorsOrigins = new List<string>
                     {
                         "https://localhost:44372",
-                        "http://localhost:44372"
+                        "http://localhost:44372",
+                        "http://spaclient20180612093422.azurewebsites.net"
                     },
                     AllowedScopes = new List<string>
                     {

@@ -46,6 +46,25 @@ namespace SpaClient
 
             app.UseCors("AllowAllOrigins");
 
+            app.UseXfo(s => s.SameOrigin());
+            app.UseHsts(hsts => hsts.MaxAge(365).IncludeSubdomains());
+            app.UseXContentTypeOptions();
+            app.UseReferrerPolicy(opts => opts.NoReferrer());
+            app.UseXXssProtection(options => options.EnabledWithBlockMode());
+
+            //app.UseCsp(opts => opts
+            //    .BlockAllMixedContent()
+            //    .StyleSources(s => s.Self())
+            //    .StyleSources(s => s.UnsafeInline())
+            //    .FontSources(s => s.Self())
+            //    .FrameAncestors(s => s.Self())
+            //    .ImageSources(s => s.Self())
+            //    .ScriptSources(s => s.Self())
+            //    .ScriptSources(s => s.UnsafeInline())
+            //    .ScriptSources(s => s.UnsafeEval())
+            //);
+
+
             var angularRoutes = new[] {
                 "/home",
                 "/forbidden",

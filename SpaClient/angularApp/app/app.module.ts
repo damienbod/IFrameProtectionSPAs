@@ -19,7 +19,9 @@ import {
 
 export function loadConfig(oidcConfigService: OidcConfigService) {
     console.log('APP_INITIALIZER STARTING');
-    return () => oidcConfigService.load_using_stsServer('https://localhost:44334');
+    // const sts = 'https://localhost:44334';
+    const sts = 'https://stsidentityserver420180612084014.azurewebsites.net';
+    return () => oidcConfigService.load_using_stsServer(sts);
 }
 
 @NgModule({
@@ -56,19 +58,23 @@ export class AppModule {
         private oidcSecurityService: OidcSecurityService,
         private oidcConfigService: OidcConfigService,
     ) {
+         const sts = 'https://localhost:44334';
+         const deployment = 'https://localhost:44372';
+        //const sts = 'https://stsidentityserver420180612084014.azurewebsites.net';
+        //const deployment = 'http://spaclient20180612093422.azurewebsites.net';
 
         this.oidcConfigService.onConfigurationLoaded.subscribe(() => {
             const openIDImplicitFlowConfiguration = new OpenIDImplicitFlowConfiguration();
 
-            openIDImplicitFlowConfiguration.stsServer = 'https://localhost:44334';
-            openIDImplicitFlowConfiguration.redirect_url = 'https://localhost:44372';
+            openIDImplicitFlowConfiguration.stsServer = sts;
+            openIDImplicitFlowConfiguration.redirect_url = deployment;
             openIDImplicitFlowConfiguration.client_id = 'angularclient';
             openIDImplicitFlowConfiguration.response_type = 'id_token token';
             openIDImplicitFlowConfiguration.scope = 'openid profile email';
-            openIDImplicitFlowConfiguration.post_logout_redirect_uri = 'https://localhost:44372/Unauthorized';
+            openIDImplicitFlowConfiguration.post_logout_redirect_uri = deployment + '/Unauthorized';
             openIDImplicitFlowConfiguration.start_checksession = false;
             openIDImplicitFlowConfiguration.silent_renew = true;
-            openIDImplicitFlowConfiguration.silent_renew_url = 'https://localhost:44372/silent-renew.html';
+            openIDImplicitFlowConfiguration.silent_renew_url = deployment + '/silent-renew.html';
             openIDImplicitFlowConfiguration.post_login_route = '/home';
             openIDImplicitFlowConfiguration.forbidden_route = '/Forbidden';
             openIDImplicitFlowConfiguration.unauthorized_route = '/Unauthorized';
