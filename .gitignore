@@ -1,0 +1,12 @@
+/SpaClient/angularApp/**/*.js
+/SpaClient/angularApp/**/*.js.map
+/.vs
+/SpaClient/bin
+/SpaClient/node_modules
+/StsIdentityServer4/obj
+/SpaClient/obj
+/StsIdentityServer4/bin
+/SpaClient/SpaClient.csproj.user
+/SpaClient/wwwroot/dist/app.bundle.js
+/SpaClient/wwwroot/dist/app.bundle.js.map
+/StsIdentityServer4/StsIdentityServer4.csproj.user
