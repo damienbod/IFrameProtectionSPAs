@@ -1,0 +1,8 @@
+/SpaClient/angularApp/**/*.js
+/SpaClient/angularApp/**/*.js.map
+/.vs
+/SpaClient/bin
+/SpaClient/node_modules
+/StsIdentityServer4/obj
+/SpaClient/obj
+/StsIdentityServer4/bin
