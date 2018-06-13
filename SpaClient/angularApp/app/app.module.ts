@@ -58,10 +58,10 @@ export class AppModule {
         private oidcSecurityService: OidcSecurityService,
         private oidcConfigService: OidcConfigService,
     ) {
-         const sts = 'https://localhost:44334';
-         const deployment = 'https://localhost:44372';
-        //const sts = 'https://stsidentityserver420180612084014.azurewebsites.net';
-        //const deployment = 'http://spaclient20180612093422.azurewebsites.net';
+        // const sts = 'https://localhost:44334';
+        // const deployment = 'https://localhost:44372';
+        const sts = 'https://stsidentityserver420180612084014.azurewebsites.net';
+        const deployment = 'https://spaclient20180612093422.azurewebsites.net';
 
         this.oidcConfigService.onConfigurationLoaded.subscribe(() => {
             const openIDImplicitFlowConfiguration = new OpenIDImplicitFlowConfiguration();
